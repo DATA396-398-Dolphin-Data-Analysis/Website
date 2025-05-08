@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <title>Dolphin Data Analysis</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -17,7 +17,7 @@
             <button class="button">Calvin Department of Computer Science</button>
             </a>
         </div>
-            <a href="https://docs.google.com/presentation/d/1R4-URmp3HJuJfoPHdyX4OhPIZLqz0IPR8HferUhu2hI/edit#slide=id.g315c230cd17_0_0" target="_blank">
+            <a href="https://docs.google.com/presentation/d/1D-Wjvpt7xHqSbJHkkAs6VpaV1BXdFLokzROQxZm8Y9w/edit?usp=sharing" target="_blank">
             <button class="button">Presentation Material</button>
             </a>
             <a href="https://github.com/lvym5/DATA396-Dolphin-Data-Analysis" target="_blank">
@@ -29,6 +29,11 @@
                 <button class="button">Project Proposal</button>
             </a>
         </div>
+        <div>
+            <a href="https://docs.google.com/document/d/1pz7DAKMxGXVvN2Rx272gH61RRa4TDlG0gJVCFg0iZ-0/edit?usp=sharing" target="_blank">
+                <button class="button">Final Report</button>
+            </a>
+        </div>
         <p class ="headerstyle">Our Vision</p>
         <div class="container">
             <hr>
@@ -36,8 +41,8 @@
                 Our project aims to develop a machine learning model to diagnose respiratory illnesses in dolphins, advancing animal conservation efforts. 
                 Existing models rely on data from voluntarily beached dolphins, which limits their applicability to a broader population and fails to diagnose specific diseases 
                 like pneumonia. To address these limitations, our model will analyze in-water measurements, enabling assessments of captive dolphins, involuntarily beached dolphins, 
-                and wild dolphins captured temporarily. Using Python and the Scikit-Learn library, we hope to implement incremental machine learning to create a transparent and efficient 
-                supervised classification model hosted on a Shiny app, offering real-time respiratory health evaluations. The model will focus on generalizability and robustness. Guided by Dr. Andreas Fahlman and Professor DeRuiter, our 
+                and wild dolphins captured temporarily. Using Python and the Scikit-Learn library, we hope to implement machine learning to create a transparent and efficient 
+                supervised classification model hosted on a Hugging Face app, offering real-time respiratory health evaluations. The model will focus on generalizability and robustness. Guided by Dr. Andreas Fahlman and Professor DeRuiter, our 
                 team will utilize our experience in machine learning, data analytics, and neural networks to deliver a solution that allows veterinarians to promptly 
                 assess and treat dolphins in various environments.
             </p> 
@@ -52,7 +57,22 @@
             In addition to logistic regression, a neural network-based binary classifier was developed using PyTorch. The model utilized fully connected layers with ReLU activation functions, trained over 100 epochs with the Adam optimizer. Validation was performed by splitting the dataset into training (80%) and testing (20%) sets, repeating the process 30 times to calculate an average accuracy of 0.4917. Challenges include a high type II error rate and suboptimal accuracy (0.67) when relying on the four variables from the logistic regression model. Other improvements included renaming dataset variables to make them more intuitive and easier to interpret. Principal Component Analysis (PCA) was also employed to reduce dimensionality while retaining key information. Although PCA-derived components have not yet been incorporated into the models, they are expected to improve future analyses and predictive accuracy.
         </p>
     </div>
-        <p class ="headerstyle">The Team (pending pictures)</p>
+    <p class = "headerstyle">2025 Spring Progress</p>
+    <div class="container">
+        <hr>
+    <p class="paragraphs">
+        The original summary statistics that we received included notable variables such as body weight, peak inspiratory and expiratory flow, inspiratory volume, and duration of breath intake. The categorical variable of ‘sex’ was also included, which was later one hot encoded into the dataset. 
+To streamline the model architecture and reduce computational complexity, the existing PyTorch model was replaced with a Scikit-Learn model approach. The updated model used a multi-layer perceptron (MLP Classifier), which is a type of neural net that optimizes the log loss function, for binary classification. To enhance the model performance, the model utilized a warm start strategy at initialization, which enabled the classifier to retain learned parameters across training iterations rather than resetting the model at every cycle. 
+	To ensure data quality and to avoid data leakage, two validation strategies were introduced. The first, Group Shuffle Split (GSS), was implemented to partition the data in a way that would not allow any training dolphins to be seen in the testing set. The second validation strategy was a cross-validation technique called Leave One Group Out (LOGO). One dolphin in the training set was iteratively left out for every training cycle. After each round, the model was updated and then retrained on the new batch of dolphins with another dolphin being left out. This helped improve generalizations across the individual dolphins. 
+    </p>
+    <p class="paragraphs">
+        The MLP classifier achieved a training accuracy of 99% and a testing accuracy of 94%. Because of the steps taken to avoid data leakage, we have strong evidence to believe that our model did not overfit. The dataset was split into 94 unique dolphins in the training set and 24 unique dolphins in the testing set. All animal names that were seen in testing were never seen in training. 
+
+    </p>
+    </div>
+
+        <p class ="headerstyle">The Team</p>
+        <hr>
         <div class="teambox">
             <div class="box">
                 <p class = "names">Chong Xiang (John) Ju</p>
@@ -60,7 +80,7 @@
             </div>
             <div class="box">
                <p class = "names">Lily McAboy</p>
-               <p class = "paragraphs">My name is Lily McAboy and I am double majoring in Computer Science and Data Science with a cognate track in engineering and a minor in math. I am from Zeeland, Michigan. In my free time, I love to craft (crochet, knit, scrapbook) and cook! </p>
+               <p class = "paragraphs">My name is Lily McAboy and I am double majoring in Computer Science and Data Science with a cognate track in engineering and a minor in math. I am from Zeeland, Michigan. In my free time, I love to crochet and cook! </p>
             </div>
             <div class="box">
                 <p class="names">Luke Monsma</p>
